@@ -1,6 +1,8 @@
 import { useState } from "react"
 
 export function App() {
+  const [value, setValue] = useState('');
+  
   const [list, setList] = useState([
     {id: '1', label: 'Fazer café',},
     {id: '2', label: 'Fazer almoço',},
@@ -9,9 +11,17 @@ export function App() {
 
   return (
     <div>
-      <input/>
+      <input
+        value = {value}
+        onChange={(e) => setValue(e.target.value)}
+      />
 
-      <button>
+      <button
+        onClick={() => {
+          setList([...list, {id: (list.length + 1).toString(), label: value}]);
+          setValue('');
+        }}
+      >
         Adicionar
       </button>
 
