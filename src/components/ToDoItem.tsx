@@ -2,13 +2,11 @@ interface IToDoItemProps{
     id: string;
     label: string;
     complete: boolean;
-    
     onComplete(): void;
     onRemove(): void;
 }
 
 export const ToDoItem = ({id, label, complete, onComplete, onRemove}: IToDoItemProps) => {
-
     return (
         <li key={id}> 
             {label}
